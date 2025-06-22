@@ -23,5 +23,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@public/*": ["./public/*"]
   }
 }
