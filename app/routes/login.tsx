@@ -1,4 +1,4 @@
-import { TextField } from '~/components/ui/text-field';
+import { TextField } from '@components/ui/text-field';
 import logo from '@public/logo.svg';
 import { Button } from '@mui/material';
 

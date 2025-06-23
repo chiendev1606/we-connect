@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@public': path.resolve(__dirname, 'public'),
+      '@components': path.resolve(__dirname, 'app/components'),
     },
   },
 });

@@ -1,3 +1,5 @@
+import type { Route } from '.react-router/types/app/+types/root';
+import { Provider } from 'react-redux';
 import {
   isRouteErrorResponse,
   Links,
@@ -6,14 +8,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'react-router';
+import store from './stores/store';
 
-import type { Route } from './+types/root';
-import './app.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
+import './app.css';
 import theme from './config/mui-config';
 
 export const links: Route.LinksFunction = () => [
@@ -39,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <> {children}</>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -49,9 +51,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Outlet />
-    </ThemeProvider>
+   <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Outlet />
+      </ThemeProvider>
+   </Provider>
   );
 }
 
